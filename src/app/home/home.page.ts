@@ -25,53 +25,61 @@ export class HomePage {
   };
 
   u;
-  isExisted = false;
-
   constructor(
     private fire: AngularFireAuth,
     public navCtrl: NavController,
     public router: Router,
     public db: AngularFireDatabase
-  ) {}
+  ) { }
 
   loginWithFacebook() {
-    this.isExisted = false;
     this.fire.auth
       .signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then(res => {
-        console.log(res);
-        this.user.loggedIn = true;
-        this.user.name = res.user.displayName;
         this.user.email = res.user.email;
-        this.user.profilePicture = res.user.photoURL;
         this.user.uid = res.user.uid;
-        this.router.navigate(["newfeed", this.user.uid]);
-        console.log(res)
-        firebase.database().ref().child("Users").orderByChild("User_Email").equalTo(this.user.email).once("value",snapshot => {
-          if(snapshot.exists()){
-            
-          }
-          else{
-            var myRef = firebase
-            .database()
-            .ref()
-            .child("Users/")
-            .push({
-              User_Name: this.user.name,
-              User_PhotoURL: this.user.profilePicture,
-              User_Email: this.user.email,
-              User_ID: this.user.uid
-            });
-          var key = myRef.key;
-          firebase
-            .database()
-            .ref()
-            .child("Users/" + key)
-            .update({ User_ID: key });
-          }
-        })
-        this.router.navigate(["newfeed", this.user.uid]);
+        firebase
+          .database()
+          .ref()
+          .child("Users")
+          .orderByChild("User_Email")
+          .equalTo(this.user.email)
+          .once("value", snapshot => {
+            var urlID;
+            if (snapshot.exists()) {
+              snapshot.forEach(function (childSnapshot) {
 
+                console.log(childSnapshot.val());
+                urlID = childSnapshot.child("User_ID").val();
+              });
+              this.router.navigate(["newfeed", urlID]);
+
+            } else {
+              this.user.loggedIn = true;
+              this.user.name = res.user.displayName;
+              this.user.email = res.user.email;
+              this.user.profilePicture = res.user.photoURL;
+              this.user.uid = res.user.uid;
+              var myRef = firebase
+                .database()
+                .ref()
+                .child("Users/")
+                .push({
+                  User_Name: this.user.name,
+                  User_PhotoURL: this.user.profilePicture,
+                  User_Email: this.user.email,
+                  User_ID: this.user.uid
+                });
+              var key = myRef.key;
+              firebase
+                .database()
+                .ref()
+                .child("Users/" + key)
+                .update({ User_ID: key });
+              this.user.uid = key;
+              this.router.navigate(["newfeed", this.user.uid]);
+            }
+          });
       })
       .catch(error => {
         alert(error);
@@ -82,41 +90,50 @@ export class HomePage {
     this.fire.auth
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then(res => {
-        this.user.loggedIn = true;
-        this.user.name = res.user.displayName;
         this.user.email = res.user.email;
-        this.user.profilePicture = res.user.photoURL;
         this.user.uid = res.user.uid;
-        
-        
-        console.log(res)
-        firebase.database().ref().child("Users").orderByChild("User_Email").equalTo(this.user.email).once("value",snapshot => {
-          if(snapshot.exists()){
-            
-          }
-          else{
-            var myRef = firebase
-            .database()
-            .ref()
-            .child("Users/")
-            .push({
-              User_Name: this.user.name,
-              User_PhotoURL: this.user.profilePicture,
-              User_Email: this.user.email,
-              User_ID: this.user.uid
-            });
-          var key = myRef.key;
-          firebase
-            .database()
-            .ref()
-            .child("Users/" + key)
-            .update({ User_ID: key });
-            this.user.uid=key;
-          }
-        })
-        
-        this.router.navigate(["newfeed", this.user.uid]);
+        firebase
+          .database()
+          .ref()
+          .child("Users")
+          .orderByChild("User_Email")
+          .equalTo(this.user.email)
+          .once("value", snapshot => {
+            var urlID;
+            if (snapshot.exists()) {
+              snapshot.forEach(function (childSnapshot) {
 
+                console.log(childSnapshot.val());
+                urlID = childSnapshot.child("User_ID").val();
+              });
+              this.router.navigate(["newfeed", urlID]);
+
+            } else {
+              this.user.loggedIn = true;
+              this.user.name = res.user.displayName;
+              this.user.email = res.user.email;
+              this.user.profilePicture = res.user.photoURL;
+              this.user.uid = res.user.uid;
+              var myRef = firebase
+                .database()
+                .ref()
+                .child("Users/")
+                .push({
+                  User_Name: this.user.name,
+                  User_PhotoURL: this.user.profilePicture,
+                  User_Email: this.user.email,
+                  User_ID: this.user.uid
+                });
+              var key = myRef.key;
+              firebase
+                .database()
+                .ref()
+                .child("Users/" + key)
+                .update({ User_ID: key });
+              this.user.uid = key;
+              this.router.navigate(["newfeed", this.user.uid]);
+            }
+          });
       })
       .catch(error => {
         alert(error);
