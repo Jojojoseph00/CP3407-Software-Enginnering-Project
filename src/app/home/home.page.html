@@ -1,13 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Welcome to Ionic!
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content padding>
+
+<ion-content  class="myview no-scroll"  padding class="letsstart" n>
+  <img src="../../assets/logo.png" alt="logo">
   <ion-button
+  class="facebook"
     color="primary"
     expand="block"
     (click)="loginWithFacebook()"
@@ -16,7 +12,8 @@
   >
   
   <ion-button
-    color="primary"
+    class="google"
+    color="danger"
     expand="block"
     (click)="loginWithGoogle()"
     *ngIf="!user.loggedIn"

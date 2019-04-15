@@ -1,9 +1,50 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>newfeed</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar color="primary">
+  <div id="toolbar" >
+    <div class="elem">
+      <ion-searchbar
+        search-icon="search"
+        animated="true"
+        placeholder="Find Items"
+        show-cancel-button="true"
+        color="light"
+      ></ion-searchbar>
+    </div>
+    <div class="elem">
+      <ion-button color="#ffffff">
+        <ion-icon slot="icon-only" name="chatbubbles" color="light"></ion-icon>
+        <ion-badge color="danger">50</ion-badge>
+      </ion-button>
+    </div>
+  </div>
+</ion-toolbar>
+<ion-content> </ion-content>
 
-<ion-content>
+<ion-fab vertical="bottom" horizontal="center" slot="fixed" color="primary">
+    <ion-fab-button>
+      <ion-icon name="add" color="light"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="newfeed">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>News</ion-label>
+      <ion-badge color="danger">6</ion-badge>
+    </ion-tab-button>
 
-</ion-content>
+    <ion-tab-button tab="mylist">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>My List</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="myrented">
+      <ion-icon name="filing"></ion-icon>
+      <ion-label>My Rented</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notice">
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label>Notifications</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
