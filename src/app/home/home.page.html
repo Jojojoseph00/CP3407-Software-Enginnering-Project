@@ -1,12 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Welcome to The Machine!
+      <img
+        alt="logo"
+        style="height:25px; background: no-repeat left center"
+        src="assets/icon/vistfoundation.png"
+      />
+      Northern Lights Project
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <p>{{ text }}</p>
-  <ion-button (click)="onChangeText()">Start Machine</ion-button>
+  <ion-button
+    (click)="onChangeText()"
+    color="danger"
+    fill="outline"
+    expand="block"
+    ><ion-ripple-effect></ion-ripple-effect>Start Machine</ion-button
+  >
 </ion-content>
