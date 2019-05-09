@@ -50,7 +50,7 @@ export class SearchusersPage implements OnInit {
 
   sendreq(recipient){
     this.newrequest.sender=firebase.auth().currentUser.uid;
-    this.newrequest.recipient=recipient.uid;
+    this.newrequest.recipient=recipient.User_ID;
     if(this.newrequest.sender===this.newrequest.recipient){
       alert("Cannot chat with yourself")
     }
@@ -61,7 +61,7 @@ export class SearchusersPage implements OnInit {
             if(res.success){
               const successalert= await this.alertCtrl.create({
                 header:"Request sent",
-                message:"Your request was sent to"+recipient.User_Name,
+                message:"Your request was sent to "+recipient.User_Name,
                 buttons: ["ok"]
               });
               await successalert.present();
