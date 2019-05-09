@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-newfeed',
@@ -10,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class NewfeedPage implements OnInit {
 
   uid:string;
-  constructor(public activeRoute:ActivatedRoute) { 
+  constructor(public activeRoute:ActivatedRoute,public router: Router,) { 
     this.uid=this.activeRoute.snapshot.paramMap.get('uid');
 
   }
@@ -18,4 +19,7 @@ export class NewfeedPage implements OnInit {
   ngOnInit() {
   }
 
+  chatUser(){
+    this.router.navigate(["chats", firebase.auth().currentUser.uid])
+  }
 }
