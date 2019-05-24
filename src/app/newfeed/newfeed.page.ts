@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import * as firebase from 'firebase';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @Component({
   selector: 'app-newfeed',
@@ -22,4 +23,8 @@ export class NewfeedPage implements OnInit {
   chatUser(){
     this.router.navigate(["chats", firebase.auth().currentUser.uid])
   }
+  userProfile(){
+    this.router.navigate(["profile",firebase.auth().currentUser.uid])
+  }
+  
 }

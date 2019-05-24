@@ -8,6 +8,9 @@ const routes: Routes = [
   { path: 'chats/:uid', loadChildren: './chats/chats.module#ChatsPageModule' },
   { path: 'searchusers/:uid', loadChildren: './searchusers/searchusers.module#SearchusersPageModule' },
   { path: 'contactchat/:uid', loadChildren: './contactchat/contactchat.module#ContactchatPageModule' },
+  { path: 'profile/:uid', loadChildren: './profile/profile.module#ProfilePageModule' },
+
+
 
 
 

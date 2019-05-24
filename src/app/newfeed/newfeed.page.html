@@ -1,7 +1,7 @@
 <ion-toolbar color="primary">
   <div id="toolbar" >
     <div class="elem">
-      <ion-button color="#ffffff" >
+      <ion-button color="#ffffff">
           <ion-icon slot="icon-only" name="search" color="light"></ion-icon>
       </ion-button>
     </div>
@@ -42,9 +42,9 @@
       <ion-label>My Rented</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="notice">
-      <ion-icon name="notifications"></ion-icon>
-      <ion-label>Notifications</ion-label>
+    <ion-tab-button tab="profile" (click)="userProfile()">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profile</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
