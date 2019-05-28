@@ -6,7 +6,7 @@
         style="height:25px; background: no-repeat left center"
         src="assets/icon/vistfoundation.png"
       />
-      Northern Lights Project
+      EASY-LOANEY
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -21,3 +21,40 @@
     ><ion-ripple-effect></ion-ripple-effect>Start Machine</ion-button
   >
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button color="danger"
+    ><ion-ripple-effect></ion-ripple-effect>
+    <ion-icon name="ios-camera"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="newfeed"
+      ><ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="ios-pricetags"></ion-icon>
+      <ion-label>Marketplace</ion-label>
+      <!-- <ion-badge color="danger">6</ion-badge> -->
+    </ion-tab-button>
+
+    <ion-tab-button tab="mylist"
+      ><ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="ios-clipboard"></ion-icon>
+      <ion-label>Listings</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button> </ion-tab-button>
+
+    <ion-tab-button tab="myrented"
+      ><ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Rented</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile"
+      ><ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

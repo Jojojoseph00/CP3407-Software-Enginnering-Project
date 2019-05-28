@@ -6,10 +6,10 @@ import { Component } from "@angular/core";
   styleUrls: ["home.page.scss"]
 })
 export class HomePage {
-  text = "Northern Lights is green to go...";
+  text = "Test button...";
 
   onChangeText() {
-    this.text = "Machine is Active, Welcome Mr Finche";
+    this.text = "We are fucked";
     console.log("Log to test");
   }
 }
