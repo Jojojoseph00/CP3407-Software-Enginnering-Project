@@ -10,7 +10,10 @@ import { Shop } from "../shop.model";
 })
 export class ItemDetailPage implements OnInit {
   loadedShop: Shop;
-  constructor(private activatedRoute, private shopService: ShopService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private shopService: ShopService
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
