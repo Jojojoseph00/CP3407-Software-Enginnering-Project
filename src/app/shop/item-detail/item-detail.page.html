@@ -1,19 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>item-detail</ion-title>
+  <ion-toolbar color="danger">
+    <ion-title>{{ loadedShop.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid no-padding>
     <ion-row>
-      <ion-col>
+      <ion-col no-padding>
         <ion-img [src]="loadedShop.imageUrl"></ion-img>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <h1>{{ loadedShop.title }}</h1>
+        <h1 text-center>{{ loadedShop.title }}</h1>
       </ion-col>
     </ion-row>
     <ion-row>

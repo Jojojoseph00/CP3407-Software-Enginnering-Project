@@ -1,11 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      <img
-        alt="logo"
-        style="height:25px; background: no-repeat left center"
-        src="assets/icon/vistfoundation.png"
-      />
+  <ion-toolbar color="light">
+    <ion-avatar slot="start">
+      <img alt="logo" src="assets/icon/vistfoundation.png"
+    /></ion-avatar>
+    <ion-title color="danger">
       EASY-LOANEY
     </ion-title>
   </ion-toolbar>
@@ -14,7 +12,7 @@
 <ion-content>
   <p>Marketplace</p>
   <ion-list>
-    <ion-item *ngFor="let shop of shop">
+    <ion-item *ngFor="let shop of shop" [routerLink]="['./', shop.id]">
       <ion-avatar slot="start">
         <ion-img [src]="shop.imageUrl"></ion-img>
       </ion-avatar>
