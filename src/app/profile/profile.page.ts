@@ -32,7 +32,15 @@ export class ProfilePage implements OnInit {
   chatUser(){
     this.router.navigate(["chats", firebase.auth().currentUser.uid])
   }
+  userProfile() {
+    this.router.navigate(["profile", firebase.auth().currentUser.uid]);
+  }
+
   newFeed(){
     this.router.navigate(["newfeed", firebase.auth().currentUser.uid])
+  }
+  userRented(){
+    this.router.navigate(["userrented", firebase.auth().currentUser.uid]);
+
   }
 }

@@ -23,104 +23,24 @@
 </ion-header>
 
 <!-- app content -->
-<ion-content [scrollEvents]="true">
-  <ion-list>
-    <ion-card padding>
-      <ion-item
-        ><ion-avatar
-          ><img
-            alt="logo"
-            style="height:25px; background: no-repeat left center"
-            src="assets/icon/vistfoundation.png"/></ion-avatar
-        >Item 1</ion-item
-      ></ion-card
-    >
-    <ion-card padding>
-      <ion-item
-        ><ion-avatar
-          ><img
-            alt="logo"
-            style="height:25px; background: no-repeat left center"
-            src="assets/icon/vistfoundation.png"/></ion-avatar
-        >Item 2</ion-item
-      ></ion-card
-    >
-    <ion-card padding>
-      <ion-item
-        ><ion-avatar
-          ><img
-            alt="logo"
-            style="height:25px; background: no-repeat left center"
-            src="assets/icon/vistfoundation.png"/></ion-avatar
-        >Item 3</ion-item
-      ></ion-card
-    >
-    <ion-card padding>
-      <ion-item
-        ><ion-avatar
-          ><img
-            alt="logo"
-            style="height:25px; background: no-repeat left center"
-            src="assets/icon/vistfoundation.png"/></ion-avatar
-        >Item 4</ion-item
-      ></ion-card
-    >
-    <ion-card padding>
-      <ion-item
-        ><ion-avatar
-          ><img
-            alt="logo"
-            style="height:25px; background: no-repeat left center"
-            src="assets/icon/vistfoundation.png"/></ion-avatar
-        >Item 5</ion-item
-      ></ion-card
-    >
-    <ion-card padding>
-      <ion-item
-        ><ion-avatar
-          ><img
-            alt="logo"
-            style="height:25px; background: no-repeat left center"
-            src="assets/icon/vistfoundation.png"/></ion-avatar
-        >Item 6</ion-item
-      ></ion-card
-    >
-    <ion-item
-      ><ion-avatar
-        ><img
-          alt="logo"
-          style="height:25px; background: no-repeat left center"
-          src="assets/icon/vistfoundation.png"/></ion-avatar
-      >Item 7</ion-item
-    >
-    <ion-item
-      ><ion-avatar
-        ><img
-          alt="logo"
-          style="height:25px; background: no-repeat left center"
-          src="assets/icon/vistfoundation.png"/></ion-avatar
-      >Item 8</ion-item
-    >
-    <ion-item
-      ><ion-avatar
-        ><img
-          alt="logo"
-          style="height:25px; background: no-repeat left center"
-          src="assets/icon/vistfoundation.png"/></ion-avatar
-      >Item 9</ion-item
-    >
-    <ion-item
-      ><ion-avatar
-        ><img
-          alt="logo"
-          style="height:25px; background: no-repeat left center"
-          src="assets/icon/vistfoundation.png"/></ion-avatar
-      >Item 10</ion-item
-    >
-    <ion-item>Item 11</ion-item>
-    <ion-item>Item 12</ion-item>
-    <ion-item>Item 13</ion-item>
-    <ion-item>Item 14</ion-item>
+<ion-content>
+  <ion-list no-lines>
+    <ion-list>
+      <ion-item-sliding *ngFor="let key of items">
+        <ion-item>
+          <ion-card>
+              <img src="{{ key.Item_PhotoURL }}" />
+              <ion-card-header>
+                <ion-card-title>{{ key.Item_Title }}</ion-card-title>
+                <ion-card-subtitle>{{ key.Item_ListedTime }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                  {{ key.Item_Description }}
+              </ion-card-content>
+            </ion-card>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
   </ion-list>
 </ion-content>
 
@@ -139,7 +59,7 @@
       <!-- <ion-badge color="danger">6</ion-badge> -->
     </ion-tab-button>
 
-    <ion-tab-button tab="mylist"
+    <ion-tab-button tab="mylist" (click)="userListing()"
       ><ion-ripple-effect></ion-ripple-effect>
       <ion-icon name="ios-clipboard"></ion-icon>
       <ion-label>Listings</ion-label>
@@ -147,7 +67,7 @@
 
     <ion-tab-button> </ion-tab-button>
 
-    <ion-tab-button tab="myrented"
+    <ion-tab-button tab="myrented" (click)="userRented()"
       ><ion-ripple-effect></ion-ripple-effect>
       <ion-icon name="list"></ion-icon>
       <ion-label>Rented</ion-label>

@@ -20,7 +20,10 @@ const routes: Routes = [
   {
     path: "profile/:uid",
     loadChildren: "./profile/profile.module#ProfilePageModule"
-  }
+  },
+  { path: 'userlisting/:uid', loadChildren: './userlisting/userlisting.module#UserlistingPageModule' },
+  { path: 'userrented/:uid', loadChildren: './userrented/userrented.module#UserrentedPageModule' }
+
 ];
 
 @NgModule({
