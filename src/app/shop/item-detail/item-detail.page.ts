@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ShopService } from "../shop.service";
 import { Shop } from "../shop.model";
+import { AlertController } from "@ionic/angular";
 
 @Component({
   selector: "app-item-detail",
@@ -12,7 +13,9 @@ export class ItemDetailPage implements OnInit {
   loadedShop: Shop;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private shopService: ShopService
+    private shopService: ShopService,
+    private router: Router,
+    private alertCtrl: AlertController
   ) {}
 
   ngOnInit() {
@@ -24,5 +27,10 @@ export class ItemDetailPage implements OnInit {
       const shopId = paramMap.get("shopId");
       this.loadedShop = this.shopService.getItem(shopId);
     });
+  }
+
+  onDeleteItem() {
+    this.shopService.deleteItem(this.loadedShop.id);
+    this.router.navigate(["/shop"]);
   }
 }

@@ -12,7 +12,7 @@
 <ion-content>
   <p>Marketplace</p>
   <ion-list>
-    <ion-item *ngFor="let shop of shop" [routerLink]="['./', shop.id]">
+    <ion-item *ngFor="let shop of shop" [routerLink]="['/shop', shop.id]">
       <ion-avatar slot="start">
         <ion-img [src]="shop.imageUrl"></ion-img>
       </ion-avatar>

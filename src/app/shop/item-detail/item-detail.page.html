@@ -1,6 +1,14 @@
 <ion-header>
   <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/shop"></ion-back-button
+    ></ion-buttons>
     <ion-title>{{ loadedShop.title }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteItem()">
+        <ion-icon name="ios-trash" slot="icon-only"></ion-icon
+      ></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

@@ -42,4 +42,10 @@ export class ShopService {
       })
     };
   }
+
+  deleteItem(shopId: string) {
+    this.shop = this.shop.filter(shop => {
+      return shop.id !== shopId;
+    });
+  }
 }
