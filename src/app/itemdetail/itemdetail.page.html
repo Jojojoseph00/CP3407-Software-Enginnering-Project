@@ -55,4 +55,14 @@
       <h3>{{ price }}</h3>
     </ion-item>
   </ion-list>
+  <ion-item>Hello</ion-item>
+
+  <ion-calendar
+    [(ngModel)]="dateRange"
+    [options]="optionsRange"
+    [type]="type"
+    [format]="'YYYY-MM-DD'"
+    (change)="logger()"
+  >
+  </ion-calendar>
 </ion-content>
