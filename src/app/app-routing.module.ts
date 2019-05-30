@@ -22,7 +22,8 @@ const routes: Routes = [
     loadChildren: "./profile/profile.module#ProfilePageModule"
   },
   { path: 'userlisting/:uid', loadChildren: './userlisting/userlisting.module#UserlistingPageModule' },
-  { path: 'userrented/:uid', loadChildren: './userrented/userrented.module#UserrentedPageModule' }
+  { path: 'userrented/:uid', loadChildren: './userrented/userrented.module#UserrentedPageModule' },
+  { path: 'itemdetail', loadChildren: './itemdetail/itemdetail.module#ItemdetailPageModule' }
 
 ];
 
