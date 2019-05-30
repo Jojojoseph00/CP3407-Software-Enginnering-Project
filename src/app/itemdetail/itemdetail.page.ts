@@ -17,8 +17,8 @@ export class ItemdetailPage implements OnInit {
   optionsRange: CalendarComponentOptions = {
     pickMode: "range"
   };
-  date: moment.Moment;
-  public selectedDate;
+  // date: moment.Moment;
+  // public selectedDate;
 
   imageUrl: string;
   title: string;
@@ -53,11 +53,11 @@ export class ItemdetailPage implements OnInit {
     console.log(this.dateRange);
   }
 
-  dateSelected($event) {
-    console.log("dateSelected");
-    console.log($event);
-    const selectedDate = moment($event.time);
-    console.log(selectedDate.format("YYYY-MM-DD"));
-    this.selectedDate = selectedDate.format("DD MMM, YYYY");
-  }
+  // dateSelected($event) {
+  //   console.log("dateSelected");
+  //   console.log($event);
+  //   const selectedDate = moment($event.time);
+  //   console.log(selectedDate.format("YYYY-MM-DD"));
+  //   this.selectedDate = selectedDate.format("DD MMM, YYYY");
+  // }
 }
