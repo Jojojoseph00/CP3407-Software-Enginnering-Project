@@ -24,34 +24,31 @@
 
 <!-- app content -->
 <ion-content>
-  <ion-list no-lines>
-    <ion-list>
-      <ion-item-sliding *ngFor="let key of items">
-        <ion-item>
-          <ion-card>
-              <img src="{{ key.Item_PhotoURL }}" />
-              <ion-card-header>
-                <ion-card-title>{{ key.Item_Title }}</ion-card-title>
-                <ion-card-subtitle>{{ key.Item_ListedTime }}</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                  {{ key.Item_Description }}
-              </ion-card-content>
-            </ion-card>
-        </ion-item>
-      </ion-item-sliding>
-    </ion-list>
+  <ion-list *ngFor="let key of items" >
+    <ion-item>
+      <ion-card (click)="itemDetail(key)">
+        <img src="{{ key.Item_PhotoURL }}" />
+        <ion-card-header>
+          <ion-card-title>{{ key.Item_Title }}</ion-card-title>
+          <ion-card-subtitle>{{ key.Item_ListedTime }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{ key.Item_Description }}
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
   </ion-list>
 </ion-content>
 
+<ion-content>
 <ion-fab vertical="bottom" horizontal="center" slot="fixed">
   <ion-fab-button color="danger"
     ><ion-ripple-effect></ion-ripple-effect>
     <ion-icon name="ios-camera" color="light"></ion-icon>
   </ion-fab-button>
 </ion-fab>
-<ion-tabs color="light">
-  <ion-tab-bar slot="bottom">
+<ion-tabs color="light" >
+  <ion-tab-bar>
     <ion-tab-button tab="newfeed"
       ><ion-ripple-effect></ion-ripple-effect>
       <ion-icon name="ios-pricetags"></ion-icon>
@@ -80,3 +77,4 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+</ion-content>

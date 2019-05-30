@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   { path: 'userlisting/:uid', loadChildren: './userlisting/userlisting.module#UserlistingPageModule' },
   { path: 'userrented/:uid', loadChildren: './userrented/userrented.module#UserrentedPageModule' },
-  { path: 'itemdetail', loadChildren: './itemdetail/itemdetail.module#ItemdetailPageModule' }
+  { path: 'itemdetail/:id', loadChildren: './itemdetail/itemdetail.module#ItemdetailPageModule' }
 
 ];
 
