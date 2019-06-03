@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start" color="danger">
+      <ion-back-button color="danger" defaultHref="/newfeed"></ion-back-button
+    ></ion-buttons>
+    <ion-title>
+      <img
+        alt="logo"
+        style="height:25px; background: no-repeat left center"
+        src="assets/icon/vistfoundation.png"
+      />
+      EASY-LOANEY
+    </ion-title>
+    <div class="elem" slot="end">
+      <ion-button color="#ffffff" (click)="chatUser()">
+        <ion-icon slot="icon-only" name="chatbubbles" color="danger"></ion-icon>
+        <ion-badge color="dark">50</ion-badge>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="i-photo" padding-top>
+    <img src="{{ imageUrl }}" />
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <h1>{{ title }}</h1>
+    </ion-item>
+    <ion-item>
+      <p>Description:</p>
+      <h3>{{ description }}</h3>
+    </ion-item>
+    <ion-item>
+      <p>Deposit:</p>
+      <h3>{{ deposit }}</h3>
+    </ion-item>
+
+    <ion-item>
+      <p>Listed Date:</p>
+      <h3>{{ listed_date }}</h3>
+    </ion-item>
+
+    <ion-item>
+      <p>Multilple Quantity:</p>
+      <h3>{{ multi_quantity }}</h3>
+    </ion-item>
+
+    <ion-item>
+      <p>Price:</p>
+      <h3>{{ price }}</h3>
+    </ion-item>
+  </ion-list>
+  <ion-item>Hello</ion-item>
+
+  <ion-calendar
+    [(ngModel)]="dateRange"
+    [options]="optionsRange"
+    [type]="type"
+    [format]="'YYYY-MM-DD'"
+    (change)="logger()"
+  >
+  </ion-calendar>
+</ion-content>
